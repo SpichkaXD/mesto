@@ -1,0 +1,16 @@
+.info {
+    margin: 22px 0 25px 30px;
+    width: 336px;
+    height: 73px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+@media screen and (max-width: 320px) {
+    .info {
+        width: 282px;
+        height: 54px;
+        margin: 26px auto  36px;
+        justify-content: center;
+    }
+}
