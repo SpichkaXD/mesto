@@ -26,7 +26,7 @@
 
 ## 🔧 GitHub Pages <a name = "GitHubPages"></a>
 
-* [ Ссылка на макет в GitHub Pages]()
+* [ Ссылка на макет в GitHub Pages](https://spichkaxd.github.io/mesto/)
 
 &ensp;
 
