@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .header__logo {
     width: 142px;
     height: 33px;
@@ -19,4 +20,27 @@
         height: 25px;
         margin-left: 27px;       
     }
+=======
+.header__logo {
+    width: 142px;
+    height: 33px;
+    background-image: url(../../../images/logo.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+@media screen and (max-width: 950px) {
+    .header__logo {      
+        margin-left: 40px;        
+    }
+}
+
+
+@media screen and (max-width: 320px) {
+    .header__logo {
+        width: 104px;
+        height: 25px;
+        margin-left: 27px;       
+    }
+>>>>>>> d569d08730092f21f10e9f34160d7abd29e9421d
 }
