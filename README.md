@@ -7,7 +7,7 @@
 ## 📝 Обзор
 
 - [Интро](#about)
-- [Figmas](#usedtechnologies)
+- [Figma](#usedtechnologies)
 - [GitHub Pages](#GitHubPages)
 - [Автор](#authors)
 
@@ -18,7 +18,7 @@
 
 &ensp;
 
-## ⛏️ Figma <a name = "#usedtechnologies"></a>
+## ⛏️ Figma <a name = "usedtechnologies"></a>
 
 * [Ссылка на макет в Figma](https://www.figma.com/file/2cn9N9jSkmxD84oJik7xL7/JavaScript.-Sprint-4?node-id=0%3A1)
 
