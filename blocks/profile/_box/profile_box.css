@@ -1,9 +1,0 @@
-.profile_box {
-    display: flex;
-}
-
-@media screen and (max-width: 520px) {
-    .profile_box {
-        flex-direction: column;
-    }
-}

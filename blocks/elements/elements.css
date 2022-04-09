@@ -17,7 +17,6 @@
 @media screen and (max-width: 620px) {
     .elements {
         max-width: 282px;
-        zoom: 1.5;
         padding: 36px 0 0;
         justify-content: center;
     }

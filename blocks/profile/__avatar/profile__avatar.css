@@ -4,11 +4,11 @@
     background-image: url(/images/avatar.jpg);
     background-size: 120px;
     background-position: center;
-    border-radius: 50%;
+    border-radius: 120px;
     object-fit: contain;
 }
 
-@media screen and (max-width: 520px) {
+@media screen and (max-width: 640px) {
     .profile__avatar {
         margin: 0 auto;       
     }

@@ -20,10 +20,10 @@
         </header>
         <main>
             <section class="profile">
-                <div class="profile_box">
+                <div class="profile__box">
                     <div class="profile__avatar"></div>
                     <div class="info">
-                        <h1 class="info__name">Жак-Ив Кусто</h1>
+                        <h2 class="info__name">Жак-Ив Кусто</h2>
                         <button class="info__btn"></button>
                         <p class="info__occupation">Исследователь океана</p>
                     </div>
@@ -33,54 +33,67 @@
 
             <section class="elements">
                 <div class="element">
-
                     <img class="element__img" src="images/karachaevsk.jpg" alt="Карачаевск">
-                    <div class="element_box">
+                    <div class="element__box">
                         <h2 class="element__title">Карачаевск</h2>
                         <button class="element__like"></button>
                     </div>
                 </div>
                 <div class="element">
                     <img class="element__img" src="images/gora-albrus.jpg" alt="Гора Эльбрус">
-                    <div class="element_box">
+                    <div class="element__box">
                         <h2 class="element__title">Гора Эльбрус</h2>
                         <button class="element__like"></button>
                     </div>
                 </div>
                 <div class="element">
                     <img class="element__img" src="images/dombai.jpg" alt="Домбай">
-                    <div class="element_box">
+                    <div class="element__box">
                         <h2 class="element__title">Домбай</h2>
                         <button class="element__like"></button>
                     </div>
                 </div>
                 <div class="element">
                     <img class="element__img" src="images/gora-albrus.jpg" alt="Гора Эльбрус">
-                    <div class="element_box">
+                    <div class="element__box">
                         <h2 class="element__title">Гора Эльбрус</h2>
                         <button class="element__like"></button>
                     </div>
                 </div>
                 <div class="element">
                     <img class="element__img" src="images/dombai.jpg" alt="Домбай">
-                    <div class="element_box">
+                    <div class="element__box">
                         <h2 class="element__title">Домбай</h2>
                         <button class="element__like"></button>
                     </div>
                 </div>
                 <div class="element">
                     <img class="element__img" src="images/karachaevsk.jpg" alt="Карачаево">
-                    <div class="element_box">
+                    <div class="element__box">
                         <h2 class="element__title">Карачаево-Черкессия</h2>
                         <button class="element__like"></button>
                     </div>
                 </div>
             </section>
         </main>
+
         <footer class="footer">
-            <p class="footer__title">&#64 2020 Mesto Russia</p>
+            <p class="footer__title"> &#64; 2020 Mesto Russia </p>
         </footer>
+        <!-- popup -->
+    <div class="popup">
+        <div class="popup__container">
+            <button class="popup__btn popup__btn_value_close"></button>
+            <h1 class="popup__title">Редактировать профиль</h1>
+            <form class="popup__form">
+                <input class="popup__input" type="text" name="name" value="Жак-Ив Кусто">
+                <input class="popup__input" type="text" name="occupation" value="Исследователь океана">
+                <button type="submit" class=" popup__btn popup__btn_value_save">Сохранить</button>
+            </form>
+        </div>
     </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 

@@ -1,0 +1,28 @@
+.popup__container {
+    position: absolute;
+    padding: 34px 36px 37px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    border-radius: 10px;
+    width: 359px;
+    height: 259px;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+}
+
+@media screen and (max-width: 540px) {
+    .popup__container {
+        padding: 24px 26px 27px;
+        width: 300px;
+        height: 200px;
+    }
+}
+
+@media screen and (max-width: 470px) {
+    .popup__container {
+        padding: 14px 16px 17px;
+        width: 200px;
+        height: 250px;
+    }
+}
