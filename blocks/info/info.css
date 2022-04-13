@@ -1,7 +1,7 @@
 .info {
     margin: 22px 0 25px 30px;
     width: 460px;
-    height: 73px;
+    min-height: 73px;
     display: flex;
     flex-wrap: wrap;
 }
@@ -16,7 +16,7 @@
 @media screen and (max-width: 500px) {
     .info {
         width: 290px;
-        height: 54px;
+        min-height: 54px;
         margin: 26px auto  36px;      
     }
 }

@@ -1,10 +1,7 @@
 .elements {
     padding-top: 51px;
-    display: flex;
-    flex-wrap: wrap;
     margin: 0 auto;
     max-width: 880px;
-    justify-content: space-between;
 }
 
 @media screen and (max-width: 950px) {
@@ -18,7 +15,6 @@
     .elements {
         max-width: 282px;
         padding: 36px 0 0;
-        justify-content: center;
     }
 }
 

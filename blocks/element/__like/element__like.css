@@ -6,10 +6,12 @@
     object-fit: cover;
     border: none;
     transition: opacity 0.3s linear;
+    background-color: white;
+    fill: black;
 }
 
 .element__like:hover {
     opacity: 0.6;
     cursor: pointer;
+    fill: black;   
 }
-
