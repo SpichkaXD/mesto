@@ -28,15 +28,6 @@ popup__btn_value_close.addEventListener('click', () => {
     jobInput.value = info__occupation.textContent;
 });
 
-const likeBtn = document.querySelectorAll ('.element__like');
-console.log(likeBtn);
-
-function LikeActive () { 
-	likeBtn.classList.add('element__like_active');
-    console.log("hello");
-}
-
-LikeBtn.addEventListener('click', LikeActive);
 
 
 

@@ -12,7 +12,7 @@
     .profile {
         flex-direction: column;
         min-width: 282px;
-        height: 210px;
+        min-height: 210px;
         padding-top: 42px;
     }
 }
@@ -21,7 +21,7 @@
     .profile {
         flex-direction: column;
         min-width: 282px;
-        height: 286px;
+        min-height: 286px;
         padding-top: 42px;
     }
 }
