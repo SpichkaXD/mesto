@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 .elements__cards {
     padding: 0;
     margin: 0;
@@ -6,13 +5,4 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-=======
-.elements__cards {
-    padding: 0;
-    margin: 0;
-    list-style-type: none;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
->>>>>>> d6f542da8c1768405edc17f6274f7d600cab8e07
 }
