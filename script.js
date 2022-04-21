@@ -29,6 +29,22 @@ popup__btn_value_close.addEventListener('click', () => {
 });
 
 
+// popup edit pic
+const popupEdit = document.querySelector('.popup__edit'); 
+const editBtn = document.querySelector('.profile__addbtn');
+editBtn.addEventListener('click', () => {
+    popupEdit.classList.add('popup__edit_opened');  
+});
+
+const editBtnClose = popupEdit.querySelector('.popup__edit-btn'); 
+editBtnClose.addEventListener('click', () => {
+    popupEdit.classList.toggle('popup__edit_opened');
+    console.log("f");
+});
+
+
+
+//добавить закрытие кнопки 
 
 
 

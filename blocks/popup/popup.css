@@ -11,3 +11,21 @@
 .popup_opened {
     display: block;
 }
+/* ! создать папки  посмотреть инпут на ссылку */
+.popup__edit {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(17, 17, 17, 0.5);
+    display: none;
+}
+
+.popup__edit_opened {
+    display: block;
+}
+/* плейсхолдер скорей всего */
+/* .popup__input_theme_grey{
+    color: #C4C4C4;;
+} */
