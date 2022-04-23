@@ -10,6 +10,11 @@
     line-height: 17px;
 }
 
+.popup__input:hover {
+    cursor: pointer;
+}
+
+
 .popup__input:last-of-type {
     margin-top: -20px;
 }
