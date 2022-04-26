@@ -28,15 +28,16 @@ popup__btn_value_close.addEventListener("click", () => {
 });
 
 // popup edit
-const popupEdit = document.querySelector(".popup__edit");
+
+const popupEdit = document.querySelector(".popup-edit");
 const editBtn = document.querySelector(".profile__addbtn");
 editBtn.addEventListener("click", () => {
-    popupEdit.classList.add("popup__edit_opened");
+    popupEdit.classList.add("popup_opened");
 });
 
-const editBtnClose = popupEdit.querySelector(".popup__edit-btn");
+const editBtnClose = popupEdit.querySelector(".popup-edit__btn");
 editBtnClose.addEventListener("click", () => {
-    popupEdit.classList.toggle("popup__edit_opened");
+    popupEdit.classList.toggle("popup_opened");
     console.log("f");
 });
 
@@ -68,38 +69,73 @@ const initialCards = [
     },
 ];
 
+//template
+
+const cardTemplate = document.querySelector("#card-template").content.querySelector(".element");
+
 // dom
 
 const cardContainer = document.querySelector(".elements__cards");
 const form = document.querySelector(".popup__form-edit");
-const inputName = form.querySelector(".popup__input-name");
-const inputLink = form.querySelector(".popup__input-link");
+const inputName = document.querySelector(".popup__input-name");
+const inputLink = document.querySelector(".popup__input-link");
+
+const popupImg = document.querySelector(".popup-img"); 
+const popupImgFull = popupImg.querySelector(".popup-img__fullimg"); 
+const popupImgTitle = popupImg.querySelector(".popup-img__title"); 
+const popupImgClose = popupImg.querySelector(".popup-img__btn"); 
 
 //handler event
+
 const submitAddCardForm = (event) => {
     event.preventDefault();
-    renderCard({ name: inputName.value , link: inputLink.value});
+    renderCard({ name: inputName.value, link: inputLink.value });
     inputName.value = "";
     inputLink.value = "";
-    popupEdit.classList.toggle("popup__edit_opened");
+    popupEdit.classList.toggle("popup_opened");
 };
 
-// rendercard
+const deleteCard = (event) => {
+    event.target.closest(".element").remove();
+};
+
+const likeCard = (event) => {
+    event.target.closest(".element__like").classList.toggle("element__like_active");
+};
+
+popupImgClose.addEventListener("click", () => {
+    popupImg.classList.toggle("popup_opened");
+});
+
+//generateCard
+
+const generateCard = (cardData) => {
+    const newCard = cardTemplate.cloneNode(true);
+    const nameCard = newCard.querySelector(".element__title");
+    const linkCard = newCard.querySelector(".element__img");
+
+    nameCard.textContent = cardData.name;
+    linkCard.src = cardData.link;
+
+    const deleteCardButton = newCard.querySelector(".element__delete");
+    deleteCardButton.addEventListener("click", deleteCard);
+
+    const likeCardButton = newCard.querySelector(".element__like");
+    likeCardButton.addEventListener("click", likeCard);
+
+    linkCard.addEventListener("click", () => {
+        popupImg.classList.toggle("popup_opened");
+        popupImgTitle.textContent = nameCard.textContent;
+        popupImgFull.src = linkCard.src;
+    });
+
+    return newCard;
+};
+
+//rendercard
 
 const renderCard = (cardData) => {
-    cardContainer.insertAdjacentHTML(
-        "afterbegin",
-        `
-        <li class="element">
-            <img class="element__img" src="${cardData.link}" alt="${cardData.name}" >
-            <div class="element__box">
-                <h2 class="element__title">${cardData.name}</h2>
-                <button class="element__like" type="button"></button>
-            </div>
-            <button class="element__delete" type="button"></button>
-        </li>
-        `
-    );
+    cardContainer.prepend(generateCard(cardData));
 };
 
 initialCards.forEach((cardData) => {
@@ -107,10 +143,3 @@ initialCards.forEach((cardData) => {
 });
 
 form.addEventListener("submit", submitAddCardForm);
-// //like active
-// const likeBtn = document.querySelector('.element__like');
-// likeBtn.addEventListener('click',DolikeActive);
-
-// const DolikeActive = (event) => {
-// event.target.closest().classList.toggle('element__like_active')
-// };

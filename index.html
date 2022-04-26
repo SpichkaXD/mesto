@@ -32,7 +32,7 @@
                 <section class="elements">
                     <ul class="elements__cards">
                         <li class="element">
-                            <img class="element__img" src="images/karachaevsk.jpg" alt= "Карачаевск" />
+                            <img class="element__img" src="images/karachaevsk.jpg" alt="Карачаевск" onclick="openPopupImg"/>
                             <div class="element__box">
                                 <h2 class="element__title">Карачаевск</h2>
                                 <button class="element__like" type="button"></button>
@@ -99,9 +99,9 @@
                 </div>
             </div>
             <!-- popup edit pic -->
-            <div class="popup__edit">
+            <div class="popup popup-edit">
                 <div class="popup__container">
-                    <button type="reset" class="popup__btn popup__btn_value_close popup__edit-btn"></button>
+                    <button type="reset" class="popup__btn popup__btn_value_close popup-edit__btn"></button>
                     <h2 class="popup__title">Новое место</h2>
                     <form class="popup__form popup__form-edit" name="popup__form">
                         <input class="popup__input popup__input-name" type="text" placeholder="Название" />
@@ -112,9 +112,7 @@
             </div>
         </div>
 
-        <script src="script.js"></script>
-
-        <template id="addcard">
+        <template id="card-template">
             <li class="element">
                 <img class="element__img" src="" alt="" />
                 <div class="element__box">
@@ -124,5 +122,16 @@
                 <button class="element__delete" type="button"></button>
             </li>
         </template>
+
+        <!-- popup full img -->
+        <div class="popup popup-img">
+            <div class="popup-img__container">
+                <button type="reset" class="popup__btn popup__btn_value_close popup-img__btn"></button>
+                <img class="popup-img__fullimg" src="" alt=""/>
+                <h3 class="popup-img__title"></h3>
+            </div>
+        </div>
+
+        <script src="script.js"></script>
     </body>
 </html>
