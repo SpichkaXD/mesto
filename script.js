@@ -38,7 +38,6 @@ editBtn.addEventListener("click", () => {
 const editBtnClose = popupEdit.querySelector(".popup-edit__btn");
 editBtnClose.addEventListener("click", () => {
     popupEdit.classList.toggle("popup_opened");
-    console.log("f");
 });
 
 //addcard
@@ -76,7 +75,7 @@ const cardTemplate = document.querySelector("#card-template").content.querySelec
 // dom
 
 const cardContainer = document.querySelector(".elements__cards");
-const form = document.querySelector(".popup__form-edit");
+const form = document.querySelector(".popup-edit__form");
 const inputName = document.querySelector(".popup__input-name");
 const inputLink = document.querySelector(".popup__input-link");
 
