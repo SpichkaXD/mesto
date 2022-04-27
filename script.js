@@ -64,7 +64,7 @@ const initialCards = [
     },
     {
         name: "Байкал",
-        link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg",
+        link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg1",
     },
 ];
 
@@ -121,6 +121,7 @@ const generateCard = (cardData) => {
 
     nameCard.textContent = cardData.name;
     linkCard.src = cardData.link;
+    linkCard.alt = cardData.name;
     const deleteCardButton = newCard.querySelector(".element__delete");
     deleteCardButton.addEventListener("click", deleteCard);
 
@@ -131,6 +132,7 @@ const generateCard = (cardData) => {
         popupImg.classList.toggle("popup_opened");
         popupImgTitle.textContent = nameCard.textContent;
         popupImgFull.src = linkCard.src;
+        popupImgFull.alt = nameCard.textContent;
     });
 
     return newCard;
