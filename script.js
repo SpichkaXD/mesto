@@ -79,19 +79,25 @@ const form = document.querySelector(".popup-edit__form");
 const inputName = document.querySelector(".popup__input-name");
 const inputLink = document.querySelector(".popup__input-link");
 
-const popupImg = document.querySelector(".popup-img"); 
-const popupImgFull = popupImg.querySelector(".popup-img__fullimg"); 
-const popupImgTitle = popupImg.querySelector(".popup-img__title"); 
-const popupImgClose = popupImg.querySelector(".popup-img__btn"); 
+const popupImg = document.querySelector(".popup-img");
+const popupImgFull = popupImg.querySelector(".popup-img__fullimg");
+const popupImgTitle = popupImg.querySelector(".popup-img__title");
+const popupImgClose = popupImg.querySelector(".popup-img__btn");
 
 //handler event
 
 const submitAddCardForm = (event) => {
     event.preventDefault();
-    renderCard({ name: inputName.value, link: inputLink.value });
-    inputName.value = "";
-    inputLink.value = "";
-    popupEdit.classList.toggle("popup_opened");
+    // проверка на заполненость карточки
+    if (inputName.value == "" && inputLink.value == "") {
+        popupEdit.classList.toggle("popup_opened");
+        alert("Введите данные заново");
+    } else {
+        renderCard({ name: inputName.value, link: inputLink.value });
+        inputName.value = "";
+        inputLink.value = "";
+        popupEdit.classList.toggle("popup_opened");
+    }
 };
 
 const deleteCard = (event) => {
@@ -115,7 +121,6 @@ const generateCard = (cardData) => {
 
     nameCard.textContent = cardData.name;
     linkCard.src = cardData.link;
-
     const deleteCardButton = newCard.querySelector(".element__delete");
     deleteCardButton.addEventListener("click", deleteCard);
 
