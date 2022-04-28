@@ -1,8 +1,6 @@
 .popup-img__fullimg {
-    /* object-fit: cover; */
-    min-width: 233px;
-    min-height: 340px;
     max-width: 75vw;
     max-height: 75vh;
     border-radius: 10px; 
+    background-size: cover;
 }

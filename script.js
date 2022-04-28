@@ -1,47 +1,71 @@
 const info__btn = document.querySelector(".info__btn");
-const popup = document.querySelector(".popup");
-const popup__btn_value_close = popup.querySelector(".popup__btn_value_close");
-let nameInput = popup.querySelector('.popup__input[name="name"]');
-let jobInput = popup.querySelector('.popup__input[name="occupation"]');
-let info__name = document.querySelector(".info__name");
-let info__occupation = document.querySelector(".info__occupation");
 
-let formElement = popup.querySelector(".popup__form");
+// popup-profile
+const popupProfile = document.querySelector(".popup-profile");
+const btnClosePopupProfile = popupProfile.querySelector(".popup-close-profile");
+const nameInput = popupProfile.querySelector('.popup__input[name="name"]');
+const jobInput = popupProfile.querySelector('.popup__input[name="occupation"]');
+const info__name = document.querySelector(".info__name");
+const info__occupation = document.querySelector(".info__occupation");
+const formElementProfile = popupProfile.querySelector(".popup-form-profile");
 
-function formSubmitHandler(evt) {
-    evt.preventDefault();
-    info__name.textContent = nameInput.value;
-    info__occupation.textContent = jobInput.value;
+// open close popup
+function openPopup(popup) {
+    popup.classList.add("popup_opened");
+}
+
+function closePopup(popup) {
     popup.classList.remove("popup_opened");
 }
 
-formElement.addEventListener("submit", formSubmitHandler);
+formElementProfile.addEventListener("submit", formSubmitHandler);
+
+function formSubmitHandler(evt) {
+    evt.preventDefault();
+    closePopup(popupProfile);
+    info__name.textContent = nameInput.value;
+    info__occupation.textContent = jobInput.value;
+}
 
 info__btn.addEventListener("click", () => {
-    popup.classList.add("popup_opened");
-});
-
-popup__btn_value_close.addEventListener("click", () => {
-    popup.classList.remove("popup_opened");
     nameInput.value = info__name.textContent;
     jobInput.value = info__occupation.textContent;
+    openPopup(popupProfile);
+});
+
+btnClosePopupProfile.addEventListener("click", () => {
+    closePopup(popupProfile);  
 });
 
 // popup edit
 
 const popupEdit = document.querySelector(".popup-edit");
-const editBtn = document.querySelector(".profile__addbtn");
-editBtn.addEventListener("click", () => {
-    popupEdit.classList.add("popup_opened");
+
+const popupEditAdd = document.querySelector(".profile__addbtn");
+const popupEditclose = popupEdit.querySelector(".popup-edit__btn");
+
+popupEditAdd.addEventListener("click", () => {
+    openPopup(popupEdit);
 });
 
-const editBtnClose = popupEdit.querySelector(".popup-edit__btn");
-editBtnClose.addEventListener("click", () => {
-    popupEdit.classList.toggle("popup_opened");
+popupEditclose.addEventListener("click", () => {
+    closePopup(popupEdit);
 });
 
 //addcard
 const initialCards = [
+    {
+        name: "Гора Эльбрус",
+        link: "images/gora-albrus.jpg",
+    },
+    {
+        name: "Домбай",
+        link: "images/dombai.jpg",
+    },
+    {
+        name: "Карачаево-Черкессия",
+        link: "images/karachaevsk.jpg",
+    },
     {
         name: "Архыз",
         link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg",
@@ -88,16 +112,10 @@ const popupImgClose = popupImg.querySelector(".popup-img__btn");
 
 const submitAddCardForm = (event) => {
     event.preventDefault();
-    // проверка на заполненость карточки
-    if (inputName.value == "" && inputLink.value == "") {
-        popupEdit.classList.toggle("popup_opened");
-        alert("Введите данные заново");
-    } else {
-        renderCard({ name: inputName.value, link: inputLink.value });
-        inputName.value = "";
-        inputLink.value = "";
-        popupEdit.classList.toggle("popup_opened");
-    }
+    renderCard({ name: inputName.value, link: inputLink.value });
+    closePopup(popupEdit);
+    inputName.value = "";
+    inputLink.value = "";
 };
 
 const deleteCard = (event) => {
@@ -109,7 +127,7 @@ const likeCard = (event) => {
 };
 
 popupImgClose.addEventListener("click", () => {
-    popupImg.classList.toggle("popup_opened");
+    closePopup(popupImg);
 });
 
 //generateCard
@@ -129,10 +147,10 @@ const generateCard = (cardData) => {
     likeCardButton.addEventListener("click", likeCard);
 
     linkCard.addEventListener("click", () => {
-        popupImg.classList.toggle("popup_opened");
-        popupImgTitle.textContent = nameCard.textContent;
+        popupImgTitle.textContent = cardData.name;
         popupImgFull.src = linkCard.src;
-        popupImgFull.alt = nameCard.textContent;
+        popupImgFull.alt = cardData.name;
+        openPopup(popupImg);
     });
 
     return newCard;

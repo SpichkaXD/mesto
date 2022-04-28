@@ -2,3 +2,10 @@
     top: -40px;
     right: -35px;
 }
+
+@media screen and (max-width: 540px) {
+    .popup-img__btn {
+        top: -50px;
+        right: 0;
+    }
+}
