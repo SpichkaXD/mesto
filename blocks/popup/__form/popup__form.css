@@ -23,7 +23,8 @@
     }
     /* style of popup-edit */
     .popup-edit__form {
-        
-        height: 200px;
+        margin-top: 75px;
+        width: 100%;
+        height: calc (100% - 75px);
     }
 }

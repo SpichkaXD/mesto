@@ -1,8 +1,8 @@
 .popup__input {
     padding-bottom: 4px;
     outline: none;
-    margin: 0 auto;
-    width: 358px;
+    margin: 0;
+    width: 97%;
     height: 28px;
     border: 0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
@@ -20,20 +20,12 @@
 }
 
 @media screen and (max-width: 540px) {
-    .popup__input {
-        width: 300px;
-    }
-
     .popup__input:last-of-type {
         margin-top: -10px;
     }
 }
 
 @media screen and (max-width: 470px) {
-    .popup__input {
-        width: 190px;
-    }
-
     .popup__input:last-of-type {
         margin-top: -10px;
     }

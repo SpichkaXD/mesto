@@ -99,7 +99,7 @@ const cardTemplate = document.querySelector("#card-template").content.querySelec
 // dom
 
 const cardContainer = document.querySelector(".elements__cards");
-const form = document.querySelector(".popup-edit__form");
+const formEdit = document.querySelector(".popup-edit__form");
 const inputName = document.querySelector(".popup__input-name");
 const inputLink = document.querySelector(".popup__input-link");
 
@@ -166,4 +166,4 @@ initialCards.forEach((cardData) => {
     renderCard(cardData);
 });
 
-form.addEventListener("submit", submitAddCardForm);
+formEdit.addEventListener("submit", submitAddCardForm);

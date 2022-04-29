@@ -25,4 +25,9 @@
         width: 200px;
         height: 250px;
     }
+    .popup-edit__container {
+        padding: 25px 22px 25px;
+        width: 238px;
+        height: 272px;
+    }
 }
