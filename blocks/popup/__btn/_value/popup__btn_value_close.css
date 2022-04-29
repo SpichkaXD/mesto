@@ -10,3 +10,13 @@
     background-color: rgba(0, 0, 0, 0);
     border: none;
 }
+
+@media screen and (max-width: 540px) {
+    .popup__btn_value_close {
+        width: 20px;
+        height: 20px;
+        background-size: 20px;
+        top: -35px;
+        right: 0;
+    }
+}

@@ -47,13 +47,6 @@
 @import url(../blocks/popup/__btn/_value/popup__btn_value_close.css);
 @import url(../blocks/popup/__btn/_value/popup__btn_value_save.css);
 
-/* popup-edit */
-@import url(../blocks/popup-edit/__container/popup-edit__container.css);
-@import url(../blocks/popup-edit/__title/popup-edit__title.css);
-@import url(../blocks/popup-edit/__btn/popup-edit__btn.css);
-@import url(../blocks/popup-edit/__btn-add/popup-edit__btn-add.css);
-
-
 /* popup-img */
 @import url(../blocks/popup-img/_backdrop/popup-img_backdrop.css);
 @import url(../blocks/popup-img/__container/popup-img__container.css);
