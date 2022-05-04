@@ -13,6 +13,12 @@
 @media screen and (max-width: 470px) {
     .popup__btn_value_save {
         font-size: 14px;
-        line-height: 17px;      
+        line-height: 17px;
     }
+}
+
+.popup__btn_value_save-error {
+    color: #000000;
+    background-color: #fff;
+    border: 1px solid #000000;
 }

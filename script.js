@@ -34,7 +34,7 @@ info__btn.addEventListener("click", () => {
 });
 
 btnClosePopupProfile.addEventListener("click", () => {
-    closePopup(popupProfile);  
+    closePopup(popupProfile);
 });
 
 // popup edit
@@ -167,3 +167,85 @@ initialCards.forEach((cardData) => {
 });
 
 formEdit.addEventListener("submit", submitAddCardForm);
+
+//проверка на корректность
+nameInput.addEventListener("input", function (evt) {
+    console.log(evt.target.validity.valid);
+});
+
+jobInput.addEventListener("input", function (evt) {
+    console.log(evt.target.validity.valid);
+});
+
+//dom
+const popupForm = document.querySelector(".popup__form");
+const formInput = popupForm.querySelector(".popup__input");
+const formError = popupForm.querySelector(`.${formInput.id}-error`);
+const popupProfileAdd = popupProfile.querySelector(".popup-profile__btn-add");
+
+const showInputError = (formElement, inputElement, errorMessage) => {
+    // Выбираем элемент ошибки на основе уникального класса
+    const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+    //добавление подчеркивания формы
+    inputElement.classList.add("popup__input-error");
+
+    errorElement.classList.add("popup__input-texterror_active");
+    errorElement.textContent = errorMessage;
+    // стили кнопки
+    popupProfileAdd.classList.add("popup__btn_value_save-error");
+};
+
+const hideInputError = (formElement, inputElement) => {
+    const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+    inputElement.classList.remove("popup__input-error");
+    errorElement.classList.remove("popup__input-texterror_active");
+    errorElement.textContent = '';
+    // стили кнопки
+    popupProfileAdd.classList.remove("popup__btn_value_save-error");
+};
+
+//Функция, которая проверяет валидность поля
+const checkInputValidity = (formElement, inputElement) => {
+    if (!inputElement.validity.valid) {
+        // Если поле не проходит валидацию, покажем ошибку
+        showInputError(formElement, inputElement, inputElement.validationMessage);
+    } else {
+        // Если проходит, скроем
+        hideInputError(formElement, inputElement);
+    }
+};
+
+const setEventListeners = (formElement) => {
+    // Находим все поля внутри формы,
+    const inputList = Array.from(formElement.querySelectorAll(".popup__input"));
+    // Обойдём все элементы полученной коллекции
+    inputList.forEach((inputElement) => {
+        // каждому полю добавим обработчик события input
+        inputElement.addEventListener("input", () => {
+            // Внутри колбэка вызовем isValid,
+            // передав ей форму и проверяемый элемент
+            checkInputValidity(formElement, inputElement);
+        });
+    });
+};
+
+const enableValidation = () => {
+    // Найдём все формы с указанным классом в DOM,
+    // сделаем из них массив методом Array.from
+    const formList = Array.from(document.querySelectorAll(".popup__form"));
+
+    // Переберём полученную коллекцию
+    formList.forEach((formElement) => {
+        formElement.addEventListener("submit", (evt) => {
+            // У каждой формы отменим стандартное поведение
+            evt.preventDefault();
+        });
+
+        // Для каждой формы вызовем функцию setEventListeners,
+        // передав ей элемент формы
+        setEventListeners(formElement);
+    });
+};
+
+// Вызовем функцию
+enableValidation();
