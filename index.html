@@ -41,6 +41,7 @@
             </footer>
             <!-- popup-profile -->
             <div class="popup popup-profile">
+                <div class="popup__overlay"></div>
                 <div class="popup__container">
                     <button type="reset" class="popup__btn popup__btn_value_close popup-close-profile"></button>
                     <h2 class="popup__title">Редактировать профиль</h2>
@@ -55,12 +56,15 @@
             </div>
             <!-- popup edit pic -->
             <div class="popup popup-edit">
+                <div class="popup__overlay"></div>
                 <div class="popup__container popup-edit__container">
                     <button type="reset" class="popup__btn popup__btn_value_close popup-edit__btn"></button>
                     <h2 class="popup__title popup-edit__title">Новое место</h2>
                     <form class="popup__form popup-edit__form" name="popup__form">
-                        <input class="popup__input popup__input-name" type="text" placeholder="Название" />
-                        <input class="popup__input popup__input-link" type="url" placeholder="Ссылка на картинку" />
+                        <input id="name-img-input" class="popup__input popup__input-name" type="text" placeholder="Название" minlength="2" maxlength="30" required autocomplete="off"/>
+                        <span class="popup__input-texterror name-img-input-error">Вы пропустили это поле.</span>
+                        <input id="url-input" class="popup__input popup__input-link" type="url" placeholder="Ссылка на картинку" required autocomplete="off"/>
+                        <span class="popup__input-texterror url-input-error">Вы пропустили это поле.</span>
                         <button type="submit" class="popup__btn popup__btn_value_save popup-edit__btn-add">Создать</button>
                     </form>
                 </div>
@@ -80,6 +84,7 @@
 
         <!-- popup full img -->
         <div class="popup popup-img popup-img_backdrop">
+            <div class="popup__overlay"></div>
             <div class="popup-img__container">
                 <button type="reset" class="popup__btn popup__btn_value_close popup-img__btn"></button>
                 <img class="popup-img__fullimg" src="img" alt="img"/>
@@ -88,5 +93,6 @@
         </div>
 
         <script src="script.js"></script>
+        <script src ="validate.js"></script>
     </body>
 </html>
