@@ -7,6 +7,6 @@
     min-height: 350px;
     max-width: 75vw;
     max-height: 75vh;
-    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15); 
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
     z-index: 3; 
 }
