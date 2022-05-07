@@ -1,21 +1,3 @@
-//проверка на корректность
-nameInput.addEventListener("input", function (evt) {
-    console.log(evt.target.validity.valid);
-});
-
-jobInput.addEventListener("input", function (evt) {
-    console.log(evt.target.validity.valid);
-});
-
-//dom
-const formSelector = document.querySelector(".popup__form");
-const inputSelector = formSelector.querySelector(".popup__input");
-const formError = formSelector.querySelector(`.${inputSelector.id}-error`);
-const submitButtonSelector = popupProfile.querySelector(".popup-profile__btn-add");
-
-// стили кнопки
-submitButtonSelector.classList.add("popup__btn_value_save-error");
-
 const showInputError = (formElement, inputElement, errorMessage) => {
     // Выбираем элемент ошибки на основе уникального класса
     const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
@@ -71,7 +53,7 @@ const toggleButtonState = (inputList, buttonElement) => {
     }
 };
 
-const setEventListeners = (formElement) => {
+const setEventListeners = (formElement , settings) => {
     // Находим все поля внутри формы,
     const inputList = Array.from(formElement.querySelectorAll(".popup__input"));
     // Найдём в текущей форме кнопку отправки
@@ -90,7 +72,7 @@ const setEventListeners = (formElement) => {
     });
 };
 
-const enableValidation = () => {
+const enableValidation = (settings) => {
     // Найдём все формы с указанным классом в DOM,
     // сделаем из них массив методом Array.from
     const formList = Array.from(document.querySelectorAll(".popup__form"));
@@ -104,7 +86,7 @@ const enableValidation = () => {
 
         // Для каждой формы вызовем функцию setEventListeners,
         // передав ей элемент формы
-        setEventListeners(formElement);
+        setEventListeners(formElement, settings);
     });
 };
 
