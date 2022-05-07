@@ -26,7 +26,6 @@
 }
 
 .popup__btn_value_save-error:hover {
-    opacity: 100%;
     cursor: auto;
     opacity: 0.2;
 }
