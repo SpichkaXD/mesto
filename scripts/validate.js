@@ -1,18 +1,28 @@
+const enableValidation = {
+    formSelector: ".popup__form",
+    inputSelector: ".popup__input",
+    submitButtonSelector: ".popup__btn_value_save",
+    inactiveButtonClass: "popup__button_disabled",
+    inputErrorClass: "popup__input-error",
+    errorClass: "popup__input-texterror_active",
+    errorInput: "popup__input-error"
+};
+
+
 const showInputError = (formElement, inputElement, errorMessage) => {
     // Выбираем элемент ошибки на основе уникального класса
     const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
     //добавление подчеркивания формы
-    inputElement.classList.add("popup__input-error");
+    inputElement.classList.add(enableValidation.inputErrorClass);
 
     errorElement.classList.add("popup__input-texterror_active");
     errorElement.textContent = errorMessage;
-
 };
 
-const hideInputError = (formElement, inputElement) => {
+const hideInputError = (formElement, inputElement, errorInput, errorClass) => {
     const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-    inputElement.classList.remove("popup__input-error");
-    errorElement.classList.remove("popup__input-texterror_active");
+    inputElement.classList.remove(errorInput);
+    errorElement.classList.remove(errorClass);
     errorElement.textContent = "";
 };
 
@@ -45,7 +55,6 @@ const toggleButtonState = (inputList, buttonElement) => {
         // сделай кнопку неактивной
         buttonElement.classList.add("popup__btn_value_save-error");
         buttonElement.disabled = true;
-
     } else {
         // иначе сделай кнопку активной
         buttonElement.classList.remove("popup__btn_value_save-error");
@@ -53,7 +62,7 @@ const toggleButtonState = (inputList, buttonElement) => {
     }
 };
 
-const setEventListeners = (formElement , settings) => {
+const setEventListeners = (formElement) => {
     // Находим все поля внутри формы,
     const inputList = Array.from(formElement.querySelectorAll(".popup__input"));
     // Найдём в текущей форме кнопку отправки
@@ -72,8 +81,7 @@ const setEventListeners = (formElement , settings) => {
     });
 };
 
-const enableValidation = (settings) => {
-    // Найдём все формы с указанным классом в DOM,
+const isValid = () => {
     // сделаем из них массив методом Array.from
     const formList = Array.from(document.querySelectorAll(".popup__form"));
 
@@ -86,9 +94,9 @@ const enableValidation = (settings) => {
 
         // Для каждой формы вызовем функцию setEventListeners,
         // передав ей элемент формы
-        setEventListeners(formElement, settings);
+        setEventListeners(formElement);
     });
 };
 
 // Вызовем функцию
-enableValidation();
+isValid();
