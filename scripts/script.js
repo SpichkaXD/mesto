@@ -8,23 +8,22 @@ const infoName = document.querySelector(".info__name");
 const infoOccupation = document.querySelector(".info__occupation");
 const formElementProfile = popupProfile.querySelector(".popup-form-profile");
 
-
 // open close popup
 function openPopup(popup) {
     popup.classList.add("popup_opened");
     //добовляем слушатель на закрытие по кнопке
-    document.addEventListener('keydown', closeByEsc);
+    document.addEventListener("keydown", closeByEsc);
 }
 
 function closePopup(popup) {
     popup.classList.remove("popup_opened");
-    document.removeEventListener('keydown', closeByEsc);
+    document.removeEventListener("keydown", closeByEsc);
 }
 
 //функция определения нажатия esc
 function closeByEsc(evt) {
     if (evt.key == "Escape") {
-        const openPopup = document.querySelector('.popup_opened')
+        const openPopup = document.querySelector(".popup_opened");
         closePopup(openPopup);
     }
 }
@@ -118,7 +117,6 @@ const submitAddCardForm = (event) => {
     const submitButton = event.submitter;
     submitButton.classList.add("popup__btn_value_save-error");
     submitButton.disabled = true;
-    
     event.target.reset();
 };
 
@@ -168,22 +166,21 @@ initialCards.forEach((cardData) => {
 
 formEdit.addEventListener("submit", submitAddCardForm);
 
-
 const setCloseListeners = () => {
-        // сделаем из них массив методом Array.from
-        const popupList = Array.from(document.querySelectorAll(".popup"));
-        // Переберём полученную коллекцию
-        popupList.forEach((popup) => {
-            // при нажатии на  overlay и крестик закрытие popup
-            popup.addEventListener("mousedown", (event) => {
-                if (event.target.classList.contains('popup__overlay')) {
-                    closePopup(popup)
-                }
-                if (event.target.classList.contains('popup__btn_value_close')) {
-                    closePopup(popup)
-                }
-            });
+    // сделаем из них массив методом Array.from
+    const popupList = Array.from(document.querySelectorAll(".popup"));
+    // Переберём полученную коллекцию
+    popupList.forEach((popup) => {
+        // при нажатии на  overlay и крестик закрытие popup
+        popup.addEventListener("mousedown", (event) => {
+            if (event.target.classList.contains("popup__overlay")) {
+                closePopup(popup);
+            }
+            if (event.target.classList.contains("popup__btn_value_close")) {
+                closePopup(popup);
+            }
         });
-    };
-    
-    setCloseListeners();
+    });
+};
+
+setCloseListeners();
