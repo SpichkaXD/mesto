@@ -8,6 +8,15 @@ const infoName = document.querySelector(".info__name");
 const infoOccupation = document.querySelector(".info__occupation");
 const formElementProfile = popupProfile.querySelector(".popup-form-profile");
 
+const spanErrorName = document.querySelector(".name-input-error");
+const spanErrorJob = document.querySelector(".job-input-error");
+const popupAddBtn = document.querySelector(".popup__btn_value_save"); 
+const nameImages = document.querySelector('.popup__input[name="images"]');
+const linkImages = document.querySelector('.popup__input[name="url"]');
+const spanErrorNameImg = document.querySelector(".name-img-input-error");
+const spanErrorLinkImg = document.querySelector(".url-input-error");
+
+
 // open close popup
 function openPopup(popup) {
     popup.classList.add("popup_opened");
@@ -40,6 +49,11 @@ function handleProfileFormSubmit(evt) {
 infoBtn.addEventListener("click", () => {
     nameInput.value = infoName.textContent;
     jobInput.value = infoOccupation.textContent;
+    nameInput.classList.remove("popup__input-error");
+    jobInput.classList.remove("popup__input-error");
+    spanErrorName.classList.remove("popup__input-texterror_active");
+    spanErrorJob.classList.remove("popup__input-texterror_active");
+    popupAddBtn.classList.remove("popup__btn_value_save-error");
     openPopup(popupProfile);
 });
 
@@ -49,6 +63,13 @@ const popupEdit = document.querySelector(".popup-edit");
 
 const popupEditAdd = document.querySelector(".profile__addbtn");
 popupEditAdd.addEventListener("click", () => {
+    nameImages.value = "";
+    linkImages.value = "";
+    
+    nameImages.classList.remove("popup__input-error");
+    linkImages.classList.remove("popup__input-error");
+    spanErrorNameImg.classList.remove("popup__input-texterror_active");
+    spanErrorLinkImg.classList.remove("popup__input-texterror_active");
     openPopup(popupEdit);
 });
 
