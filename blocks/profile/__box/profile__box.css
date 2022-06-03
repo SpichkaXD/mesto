@@ -1,17 +1,6 @@
 .profile__box {
-    display: flex;
-    max-width: 640px;
-}
-
-@media screen and (max-width: 950px) {
-    .profile__box {
-        justify-content: center;
-    }
-}
-
-@media screen and (max-width: 640px) {
-    .profile__box {
-        flex-direction: column;
-        width: 100%;
-    }
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
