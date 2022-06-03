@@ -4,11 +4,10 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="description" content="Путешествия по России" />
-        <meta name="keywords" content="Путешествия по России Куршская коса Кольский Алтай Зимний Байкал Карелия" />
+        <meta name="keywords" content="Mesto" />
         <meta name="author" content="Lubchik_Egor" />
-        <!-- <link rel="shortcut icon" href="images/logo.svg"> -->
-        <link rel="stylesheet" href="pages/index.css" />
-        <title>MestoRussia</title>
+        <link rel="stylesheet" href="./pages/index.css" />
+        <title>Mesto</title>
     </head>
 
     <body class="root">
@@ -16,83 +15,119 @@
             <header class="header">
                 <div class="header__logo"></div>
             </header>
-            <main>
+
+            <main class="content">
                 <section class="profile">
-                    <div class="profile__box">
-                        <div class="profile__avatar"></div>
-                        <div class="info">
-                            <h1 class="info__name">Жак-Ив Кусто</h1>
-                            <button class="info__btn" type="button"></button>
-                            <p class="info__occupation">Исследователь океана</p>
+                    <div class="profile__avatar"></div>
+                    <div class="profile__info">
+                        <div class="profile__box">
+                            <h1 class="profile__user-name">Жак-Ив Кусто</h1>
+                            <p class="profile__user-activity">Исследователь океана</p>
                         </div>
+                        <button class="profile__edit-button" type="button" aria-label="Редактировать"></button>
                     </div>
-                    <button class="profile__addbtn" type="button"></button>
+                    <button class="profile__add-button" type="button" aria-label="Добавить"></button>
                 </section>
 
                 <section class="elements" aria-label="Card-list">
-                    <ul class="elements__cards">
-
-                    </ul>
+                    <ul class="elements__container"></ul>
+                    <!-- template card -->
                 </section>
+
+                <footer class="footer">
+                    <p class="footer__text">&#64; 2022 Mesto Russia</p>
+                </footer>
             </main>
 
-            <footer class="footer">
-                <p class="footer__title">&#64; 2020 Mesto Russia</p>
-            </footer>
             <!-- popup-profile -->
-            <div class="popup popup-profile">
-                <div class="popup__overlay"></div>
+            <div class="popup popup_type_edit-profile">
                 <div class="popup__container">
-                    <button type="reset" class="popup__btn popup__btn_value_close"></button>
-                    <h2 class="popup__title">Редактировать профиль</h2>
-                    <form class="popup__form popup-form-profile" name="popup__form" novalidate>
-                        <input id="name-input" class="popup__input" type="text" name="name" value="Жак-Ив Кусто" minlength="2" maxlength="40" required autocomplete="off"/>
-                        <span class="popup__input-texterror name-input-error">Вы пропустили это поле.</span>
-                        <input id="job-input" class="popup__input" type="text" name="occupation" value="Исследователь океана" minlength="2" maxlength="200" required autocomplete="off"/>
-                        <span class="popup__input-texterror job-input-error">Вы пропустили это поле</span>
-                        <button type="submit" class="popup__btn popup__btn_value_save popup-profile__btn-add">Сохранить</button>
+                    <form name="edite-profile" class="popup__form" novalidate>
+                        <h2 class="popup__title">Редактировать профиль</h2>
+                        <input
+                            required
+                            minlength="2"
+                            maxlength="40"
+                            type="text"
+                            name="name"
+                            id="name-input"
+                            class="popup__input popup__input_type_name"
+                            placeholder="Имя"
+                            autocomplete="off"
+                        />
+                        <span class="popup__error popup__error_visible" id="name-input-error"></span>
+                        <input
+                            required
+                            minlength="2"
+                            maxlength="200"
+                            type="text"
+                            name="activity"
+                            id="activity-input"
+                            class="popup__input popup__input_type_activity"
+                            placeholder="Профессия"
+                            autocomplete="off"
+                        />
+                        <span class="popup__error popup__error_visible" id="activity-input-error"></span>
+                        <button type="submit" aria-label="Сохранить" class="popup__submit-button">Сохранить</button>
                     </form>
+                    <button type="button" aria-label="Закрыть" class="popup__close-button"></button>
                 </div>
             </div>
-            <!-- popup edit pic -->
-            <div class="popup popup-edit">
-                <div class="popup__overlay"></div>
-                <div class="popup__container popup-edit__container">
-                    <button type="reset" class="popup__btn popup__btn_value_close"></button>
-                    <h2 class="popup__title popup-edit__title">Новое место</h2>
-                    <form class="popup__form popup-edit__form" name="popup__form">
-                        <input id="name-img-input" class="popup__input popup__input-name"  name="images" type="text" placeholder="Название" minlength="2" maxlength="30" required autocomplete="off"/>
-                        <span class="popup__input-texterror name-img-input-error">Вы пропустили это поле.</span>
-                        <input id="url-input" class="popup__input popup__input-link" name="url" type="url" placeholder="Ссылка на картинку" required autocomplete="off"/>
-                        <span class="popup__input-texterror url-input-error">Вы пропустили это поле.</span>
-                        <button type="submit" class="popup__btn popup__btn_value_save popup-edit__btn-add">Создать</button>
+
+            <!-- popup edit pic card -->
+            <div class="popup popup_type_add-card">
+                <div class="popup__container">
+                    <form name="add-card" class="popup__form" novalidate>
+                        <h2 class="popup__title">Новое место</h2>
+                        <input
+                            required
+                            minlength="2"
+                            maxlength="30"
+                            type="text"
+                            name="place"
+                            id="place-input"
+                            class="popup__input popup__input_type_place"
+                            placeholder="Название"
+                            autocomplete="off"
+                        />
+                        <span class="popup__error popup__error_visible" id="place-input-error"></span>
+                        <input
+                            required
+                            type="url"
+                            name="link"
+                            id="link-input"
+                            class="popup__input popup__input_type_link"
+                            placeholder="Ссылка на картинку"
+                            autocomplete="off"
+                        />
+                        <span class="popup__error popup__error_visible" id="link-input-error"></span>
+                        <button type="submit" aria-label="Сохранить" class="popup__submit-button">Создать</button>
                     </form>
+                    <button type="button" aria-label="Закрыть" class="popup__close-button"></button>
                 </div>
             </div>
         </div>
+        <!-- popup full img -->
+        <div class="popup popup_type_view-image">
+            <div class="popup__image-container">
+                <img src="#" alt="img" class="popup__image" />
+                <h2 class="popup__image-title"></h2>
+                <button type="button" aria-label="Закрыть" class="popup__close-button"></button>
+            </div>
+        </div>
 
-        <template id="card-template">
-            <li class="element">
-                <img class="element__img" src="img" alt="img" />
-                <div class="element__box">
-                    <h2 class="element__title"></h2>
-                    <button class="element__like" type="button"></button>
+        <!-- template card -->
+        <template class="template-card">
+            <li class="card">
+                <img src="#" alt="img" class="card__image" />
+                <button type="button" aria-label="Удалить" class="card__delete-button"></button>
+                <div class="card__box">
+                    <h2 class="card__text"></h2>
+                    <button type="button" aria-label="Лайк" class="card__like-button"></button>
                 </div>
-                <button class="element__delete" type="button"></button>
             </li>
         </template>
 
-        <!-- popup full img -->
-        <div class="popup popup-img popup-img_backdrop">
-            <div class="popup__overlay"></div>
-            <div class="popup-img__container">
-                <button type="reset" class="popup__btn popup__btn_value_close"></button>
-                <img class="popup-img__fullimg" src="#" alt="img"/>
-                <h3 class="popup-img__title">.</h3>
-            </div>
-        </div>
-
-        <script src="scripts/script.js"></script>
-        <script src ="scripts/validate.js"></script>
+        <script type="module" src="./scripts/index.js"></script>
     </body>
 </html>
