@@ -19,7 +19,6 @@ const buttonAdd = document.querySelector(".profile__add-button");
 const elementsContainer = document.querySelector(".elements__container");
 const popupUserPlace = document.querySelector(".popup__input_type_place");
 const popupUserLink = document.querySelector(".popup__input_type_link");
-
 const popupEditFormValidator = new FormValidator(config, popupEditProfile);
 const popupAddFormValidator = new FormValidator(config, popupAddCard);
 
@@ -83,21 +82,21 @@ function handleFormCreate(evt) {
 }
 
 function openPopup(popup) {
-  popup.classList.add('popup_opened');
-  document.addEventListener('keydown', closePopupOnEsc);
+    popup.classList.add("popup_opened");
+    document.addEventListener("keydown", closePopupOnEsc);
 }
-export {openPopup};
+export { openPopup };
 
 function closePopup(popup) {
-  popup.classList.remove('popup_opened');
-  document.removeEventListener('keydown', closePopupOnEsc);
+    popup.classList.remove("popup_opened");
+    document.removeEventListener("keydown", closePopupOnEsc);
 }
 
-function closePopupOnEsc (evt) {
-  if (evt.key === 'Escape') {
-    const openedPopup = document.querySelector('.popup_opened');
-    closePopup(openedPopup);
-  }
+function closePopupOnEsc(evt) {
+    if (evt.key === "Escape") {
+        const openedPopup = document.querySelector(".popup_opened");
+        closePopup(openedPopup);
+    }
 }
 
 function closePopupOnOverlay(evt) {
