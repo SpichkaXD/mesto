@@ -23,8 +23,8 @@ export default class Popup {
     }
 
     _closePopupOnOverlay(evt) {
-        if (evt.target === evt.currentTarget) {
-            this.close(evt.currentTarget);
+        if (evt.target.classList.contains('popup')) {
+            this.close();
         }
     }
 

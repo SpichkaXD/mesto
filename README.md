@@ -1,5 +1,5 @@
 <p align="center">
-   <img weight=150px height=150px src="images/logo.svg" alt="Project logo"></a>
+   <img weight=150px height=150px src="src/images/logo.svg" alt="Project logo"></a>
 </p>
 
 &ensp;
