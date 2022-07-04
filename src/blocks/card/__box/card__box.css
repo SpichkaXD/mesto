@@ -1,6 +1,6 @@
 .card__box {
   display: flex;
   justify-content: space-between;
-  margin: 25px 15px 0 21px;
+  margin: 22px 15px 0 21px;
   max-width: 246px;
 }

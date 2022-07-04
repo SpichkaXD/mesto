@@ -17,7 +17,9 @@
 
             <main class="content">
                 <section class="profile">
-                    <div class="profile__avatar"></div>
+                    <div class="profile__avatar-cover">
+                        <img src="#" alt="Изображение загружается" class="profile__avatar"></img>
+                    </div>
                     <div class="profile__info">
                         <div class="profile__box">
                             <h1 class="profile__user-name">Жак-Ив Кусто</h1>
@@ -37,6 +39,27 @@
                     <p class="footer__text">&#64; 2022 Mesto Russia</p>
                 </footer>
             </main>
+
+            <!--popup change avatar-->
+            <div class="popup popup_type_change-avatar">
+                <div class="popup__container">
+                    <form name="add-avatar" class="popup__form" novalidate>
+                        <h2 class="popup__title">Обновить аватар</h2>
+                        <input
+                            autocomplete="off"
+                            required
+                            type="url"
+                            name="avatar"
+                            id="image-link-input"
+                            class="popup__input popup__input_type_link"
+                            placeholder="Ссылка на картинку"
+                        />
+                        <span class="popup__error popup__error_visible" id="image-link-input-error"></span>
+                        <button type="submit" aria-label="Сохранить" class="popup__submit-button">Сохранить</button>
+                    </form>
+                    <button type="button" aria-label="Закрыть" class="popup__close-button"></button>
+                </div>
+            </div>
 
             <!-- popup-profile -->
             <div class="popup popup_type_edit-profile">
@@ -60,7 +83,7 @@
                             minlength="2"
                             maxlength="200"
                             type="text"
-                            name="activity"
+                            name="about"
                             id="activity-input"
                             class="popup__input popup__input_type_activity"
                             placeholder="Профессия"
@@ -68,6 +91,23 @@
                         />
                         <span class="popup__error popup__error_visible" id="activity-input-error"></span>
                         <button type="submit" aria-label="Сохранить" class="popup__submit-button">Сохранить</button>
+                    </form>
+                    <button type="button" aria-label="Закрыть" class="popup__close-button"></button>
+                </div>
+            </div>
+          
+            <!--popup confirm delete card-->
+            <div class="popup popup_type_confirm">
+                <div class="popup__container">
+                    <form name="confirm" class="popup__form" novalidate>
+                        <h2 class="popup__title popup__title_type_confirm">Вы уверены?</h2>
+                        <button
+                            type="submit"
+                            aria-label="Сохранить"
+                            class="popup__submit-button popup__submit-button_type_confirmation"
+                        >
+                            Да
+                        </button>
                     </form>
                     <button type="button" aria-label="Закрыть" class="popup__close-button"></button>
                 </div>
@@ -122,7 +162,10 @@
                 <button type="button" aria-label="Удалить" class="card__delete-button"></button>
                 <div class="card__box">
                     <h2 class="card__text"></h2>
-                    <button type="button" aria-label="Лайк" class="card__like-button"></button>
+                    <div class="card__like-box">
+                        <button type="button" aria-label="Лайк" class="card__like-button"></button>
+                        <div class="card__counter">1</div>
+                    </div>
                 </div>
             </li>
         </template>
