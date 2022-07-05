@@ -13,14 +13,16 @@ export class FormValidator {
 
     _showInputError(inputElement, errorMessage) {
         inputElement.classList.add(this._config.inputErrorClass);
-        this._getErrorElement(inputElement).textContent = errorMessage;
-        this._getErrorElement(inputElement).classList.add(this._config.errorClass);
+        const errorElement = this._getErrorElement(inputElement);
+        errorElement.textContent = errorMessage;
+        errorElement.classList.add(this._config.errorClass);
     }
 
     _hideInputError(inputElement) {
         inputElement.classList.remove(this._config.inputErrorClass);
-        this._getErrorElement(inputElement).textContent = "";
-        this._getErrorElement(inputElement).classList.remove(this._config.errorClass);
+        const errorElement = this._getErrorElement(inputElement);
+        errorElement.textContent = "";
+        errorElement.classList.remove(this._config.errorClass);
     }
 
     _checkInputValidity(inputElement) {
@@ -50,7 +52,7 @@ export class FormValidator {
         );
     }
 
-    checkInputsOnValidity() {
+    resetValidation() {
         this._toggleButtonState();
 
         this._inputList.forEach((inputElement) => {

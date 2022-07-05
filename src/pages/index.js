@@ -175,15 +175,15 @@ buttonEditProfile.addEventListener("click", () => {
     const getUserInfo = userInfo.getUserInfo();
     popupUserName.value = getUserInfo.name;
     popupUserActivity.value = getUserInfo.about;
-    popupEditFormValidator.checkInputsOnValidity();
+    popupEditFormValidator.resetValidation();
 });
 
 buttonEditAvatar.addEventListener("click", () => {
     popupWithFormEditAvatar.open();
-    popupEditAvatarValidator.checkInputsOnValidity();
+    popupEditAvatarValidator.resetValidation();
 });
 
 buttonAdd.addEventListener("click", () => {
     popupWithFormAddCard.open();
-    popupAddFormValidator.checkInputsOnValidity();
+    popupAddFormValidator.resetValidation();
 });
